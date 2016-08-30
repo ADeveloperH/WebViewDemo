@@ -8,14 +8,16 @@ import android.webkit.WebView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    private WebView contentWebView; @Override
+    private WebView contentWebView;
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         contentWebView = (WebView) findViewById(R.id.webview);        // 启用javascript
         contentWebView.getSettings().setJavaScriptEnabled(true);        // 从assets目录下面的加载html
         contentWebView.loadUrl("file:///android_asset/web.html");
-        contentWebView.addJavascriptInterface(MainActivity.this,"android");
+        contentWebView.addJavascriptInterface(MainActivity.this, "android");
 
         //Button按钮 无参调用HTML js方法
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
@@ -40,22 +42,24 @@ public class MainActivity extends AppCompatActivity {
     //由于安全原因 targetSdkVersion>=17需要加 @JavascriptInterface
     //JS调用Android JAVA方法名和HTML中的按钮 onclick后的别名后面的名字对应
     @JavascriptInterface
-    public void startFunction(){
+    public void startFunction() {
 
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                Toast.makeText(MainActivity.this,"show",Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "show", Toast.LENGTH_LONG).show();
 
             }
         });
-    }    @JavascriptInterface
-    public void startFunction(final String text){
+    }
+
+    @JavascriptInterface
+    public void startFunction(final String text) {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
 //                new AlertDialog.Builder(MainActivity.this).setMessage(text).show();
-                Toast.makeText(MainActivity.this,text,Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, text, Toast.LENGTH_LONG).show();
             }
         });
 
