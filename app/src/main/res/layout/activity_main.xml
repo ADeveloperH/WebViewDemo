@@ -11,24 +11,56 @@
         android:layout_height="wrap_content"
         android:text="Android" />
 
-    <Button
-        android:id="@+id/button"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:background="@color/colorAccent"
-        android:text="调用JS"
-        android:textColor="#ffffff" />
+        android:orientation="horizontal">
 
-    <Button
+        <Button
+            android:id="@+id/btn_noreturn_nopar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:text="调用无参无返回JS"
+            android:textColor="#ffffff" />
 
-        android:id="@+id/button2"
+        <Button
+            android:id="@+id/btn_noreturn_havepar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:text="调用有参无返回JS"
+            android:textColor="#ffffff" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:background="@color/colorAccent"
-        android:text="调用有参JS"
-        android:textColor="#ffffff" />
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_havereturn_nopar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:text="调用无参有返回JS"
+            android:textColor="#ffffff" />
+
+        <Button
+            android:id="@+id/btn_havereturn_havepar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:text="调用有参有返回JS"
+            android:textColor="#ffffff" />
+    </LinearLayout>
 
 
     <TextView

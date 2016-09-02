@@ -2,23 +2,44 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
         <script type="text/javascript">
-            function javacalljs(){
-                 document.getElementById("content").innerHTML = "<br>JAVA调用了JS的无参函数";
+            function alertMsg(){
+                 alert("alert提醒");
             }
-            function javacalljswith(arg){
-                 document.getElementById("content").innerHTML = ("<br>"+arg);
+
+            function noreturnnopar(){
+                document.getElementById("content").innerHTML = "<br>JAVA调用了JS的无参无返回函数";
             }
+
+            function noreturnhavepar(par){
+                document.getElementById("content").innerHTML = "<br>JAVA调用了JS的有参无返回函数：参数为：" + par;
+            }
+
+            function havereturnnopar(){
+                document.getElementById("content").innerHTML = "<br>JAVA调用了JS的无参有返回函数";
+                return "返回值：无参有返回函数被调用";
+            }
+
+            function havereturnhavepar(par){
+                document.getElementById("content").innerHTML = "<br>JAVA调用了JS的有参有返回函数：参数为：" + par;
+                return "返回值：有参有返回函数被调用";
+            }
+
         </script>
     </head>
     <body>
       HTML 内容显示 <br/>
     <h1>
-        <div id="content">内容显示</div>
+        <div id="content" style="font-size:16px;">内容显示</div>
     </h1>
     <br/>
-        <input type="button" value="点击调用java代码" onclick="window.android.startFunction()"/><br/>
-        <input type="button" value="点击调用java代码并传递参数" onclick="window.android.startFunction('js调用了java有参方法')"/>
-        <input type="button" value="点击调用java代码方案二" onclick="window.demo.method()"/><br/>
-        <input type="button" value="点击调用java代码并传递参数方案二" onclick="window.demo.method('js调用了java有参方法method')"/>
+        <input type="button" value="点击调用无参java方法" onclick="window.android.startJavaNoParMethod()"/>
+        <br/><br/>
+        <input type="button" value="点击调用带参java方法" onclick="window.android.startJavaHaveParMethod('参数：：js调用了java有参方法1')"/>
+        </br><br/>
+        <input type="button" value="点击调用无参java方法方案二" onclick="window.demo.startJavaNoParMethod()"/>
+        <br/><br/>
+        <input type="button" value="点击调用带参java方法方案二" onclick="window.demo.startJavaHaveParMethod('参数：：js调用了java有参方法2')"/>
+        <br/><br/>
+        <input type="button" value="点击alert弹框" onclick="alertMsg()"/>
     </body>
 </html>
